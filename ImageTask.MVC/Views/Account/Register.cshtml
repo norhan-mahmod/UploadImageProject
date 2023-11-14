@@ -1,0 +1,34 @@
+﻿@model RegisterViewModel
+@{
+    ViewData["Title"] = "Register";
+    Layout = "~/Views/Shared/AuthLayout.cshtml";
+}
+
+<h1>Register</h1>
+
+<form asp-controller="Account" asp-action="Register">
+    <div class="form-group">
+        <label asp-for="DisplayName"></label>
+        <input asp-for="DisplayName" class="form-control" placeholder="Enter Name">
+        <span asp-validation-for="DisplayName" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Email"></label>
+        <input asp-for="Email" class="form-control" placeholder="Enter Email">
+        <span asp-validation-for="Email" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Password"></label>
+        <input asp-for="Password" type="password" class="form-control" placeholder="Enter Email">
+        <span asp-validation-for="Password" class="text-danger"></span>
+    </div>
+    <input type="submit" value="Register" class="btn btn-primary" />
+    <p>
+        You already have account?
+        <a asp-controller="Account" asp-action="Login" class="badge btn-success">Login now</a>
+    </p>
+</form>
+
+@section Scripts{
+    <partial name="_ValidationScriptsPartial" />
+}
