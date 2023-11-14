@@ -1,0 +1,39 @@
+﻿@model List<ProductViewModel>
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Products</h1>
+<br />
+<div class="row">
+    <div class="col-3">
+        <a asp-controller="Product" asp-action="Create" class="btn btn-primary">Create New Product</a>
+    </div>
+</div>
+@if (Model.Any())
+{
+    <table class="table table-striped">
+        <tr>
+            <th>Image</th>
+            <th>Name</th>
+            <th>Price</th>
+        </tr>
+        @foreach(var product in Model)
+        {
+            <tr>
+                <td>
+                    <img src="@product.ImageSource" height="100px" width="100px">
+                </td>
+                <td>@product.Name</td>
+                <td>@product.Price</td>
+            </tr>
+        }
+    </table>
+}
+else
+{
+    <div class="alert alert-danger">
+        <p>there is no products</p>
+    </div>
+}
+
